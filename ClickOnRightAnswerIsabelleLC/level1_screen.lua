@@ -119,29 +119,29 @@ local function DisplayAnswers( )
         answerTextObject.x = display.contentWidth*.3        
         wrongAnswer1TextObject.x = display.contentWidth*.2
         wrongAnswer2TextObject.x = display.contentWidth*.1
-        wrongAnswer3TextObject.x = display.contentWidth*.5
+        wrongAnswer3TextObject.x = display.contentWidth*.4
 
     elseif (answerPosition == 2) then
        
         answerTextObject.x = display.contentWidth*.2        
         wrongAnswer1TextObject.x = display.contentWidth*.1
         wrongAnswer2TextObject.x = display.contentWidth*.3
-        wrongAnswer3TextObject.x = display.contentWidth*.5
+        wrongAnswer3TextObject.x = display.contentWidth*.4
 
     elseif (answerPosition == 3) then
 
         answerTextObject.x = display.contentWidth*.1
         wrongAnswer1TextObject.x = display.contentWidth*.3
         wrongAnswer2TextObject.x = display.contentWidth*2
-        wrongAnswer3TextObject.x = display.contentWidth*.5
+        wrongAnswer3TextObject.x = display.contentWidth*.4
 
 
     else
        
-        answerTextObject.x = display.contentWidth*.1        
-        wrongAnswer1TextObject.x = display.contentWidth*.2
+        answerTextObject.x = display.contentWidth*.2        
+        wrongAnswer1TextObject.x = display.contentWidth*.1
         wrongAnswer2TextObject.x = display.contentWidth*.3
-        wrongAnswer2TextObject.x = display.contentWidth*.5
+        wrongAnswer2TextObject.x = display.contentWidth*.4
     end
 
 end
@@ -343,10 +343,10 @@ function scene:create( event )
     addEquationTextObject:setTextColor(155/255, 42/255, 198/255)
 
     -- create the text objects that will hold the correct answer and the wrong answers
-    answerTextObject = display.newText("", display.contentWidth*.4, display.contentHeight/2, nil, 50 )
+    answerTextObject = display.newText("", display.contentWidth*.1, display.contentHeight/2, nil, 50 )
     wrongAnswer1TextObject = display.newText("", display.contentWidth*.3, display.contentHeight/2, nil, 50 )
     wrongAnswer2TextObject = display.newText("", display.contentWidth*.2, display.contentHeight/2, nil, 50 )
-    wrongAnswer3TextObject = display.newText("", display.contentWidth*.1, display.contentHeight/2, nil, 50 )
+    wrongAnswer3TextObject = display.newText("", display.contentWidth*.4, display.contentHeight/2, nil, 50 )
     numberCorrectText = display.newText("", display.contentWidth*4/5, display.contentHeight*6/7, nil, 25)
 
     -- create the text object that will hold the number of lives
