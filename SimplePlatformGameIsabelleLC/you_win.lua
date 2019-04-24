@@ -31,8 +31,12 @@ local scene = composer.newScene( sceneName )
 -- local variables for the scene
 local bkg
 
-local loseSound = audio.loadSound("Sounds/youWinSound.wav")
-local youLoseChannel
+-----------------------------------------------------------------------------------------
+-- SOUNDS
+-----------------------------------------------------------------------------------------
+
+local winSound = audio.loadSound("Sounds/youWinSound.wav")
+local youWinChannel
 
 ----------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------
