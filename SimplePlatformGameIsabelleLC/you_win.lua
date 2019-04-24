@@ -17,7 +17,7 @@ local widget = require( "widget" )
 -----------------------------------------------------------------------------------------
 
 -- Naming Scene
-sceneName = "you_lose"
+sceneName = "you_win"
 
 -----------------------------------------------------------------------------------------
 
@@ -31,7 +31,7 @@ local scene = composer.newScene( sceneName )
 -- local variables for the scene
 local bkg
 
-local loseSound = audio.loadSound("Sounds/Kids Booing.mp3")
+local loseSound = audio.loadSound("Sounds/youWinSound.wav")
 local youLoseChannel
 
 ----------------------------------------------------------------------------------------
@@ -47,7 +47,7 @@ function scene:create( event )
     local sceneGroup = self.view
 
     -- Display background
-    bkg = display.newImage("Images/YouLose.png")
+    bkg = display.newImage("Images/YouWin.png")
     bkg.x = display.contentCenterX
     bkg.y = display.contentCenterY
     bkg.width = display.contentWidth
@@ -83,7 +83,7 @@ function scene:show( event )
 
     elseif ( phase == "did" ) then
 
-        youLoseChannel = audio.play( loseSound )
+        youWinChannel = audio.play( winSound )
         -- displayed "you lose" sound
         -- Called when the scene is now on screen.
         -- Insert code here to make the scene come alive.
