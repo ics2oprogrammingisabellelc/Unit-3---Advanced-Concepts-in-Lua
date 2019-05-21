@@ -221,8 +221,8 @@ end
 -- Function to Restart Level 1
 local function RestartLevel1()
    
-    lives.text = "Number of lives = " .. tostring(lives)
-    numberCorrect.text = "Number of correct answers = " .. tostring(numberCorrect)
+    lives = "Number of lives = " .. tostring(lives)
+    numberCorrect = "Number of correct answers = " .. tostring(numberCorrect)
 
     if (lives == 0) then
         composer.gotoScene("you_lose")
@@ -238,8 +238,8 @@ local function RestartLevel1()
     else
 
         DisplayQuestion()
-        DetermineAlternateAnswers
-        PositionAnswers
+        DetermineAlternateAnswers()
+        PositionAnswers()
     end
 end
 
@@ -305,11 +305,11 @@ local function TouchListenerAnswerBox(touch)
         alreadyClickedAnswer = true
 
         -- if the user gets the answer right, display Correct and call RestartSceneRight
-        if (correctAnswer == tonumber(userAnswer)) then     
+        if (correctAnswer == (userAnswer)) then     
             
             numberCorrect = numberCorrect + 1
             -- call RestartScene after 1 second
-            timer.performWithDelay( 1000, RestartScene )
+            timer.performWithDelay( 1000, RestartScene)
         end        
 
     end
@@ -486,6 +486,13 @@ function scene:create( event )
     soccerball.x = display.contentWidth*0.385
     soccerball.y = display.contentHeight * 12/20
 
+    -- create the text object that will hold the number of lives
+    lives = display.newText("", display.contentWidth*4/5, display.contentHeight*8/9, nil, 25) 
+    lives.isVisible = false
+
+    numberCorrect = display.newText("", display.contentWidth*4/5, display.contentHeight*6/7, nil, 25)
+    numberCorrect.isVisible = false
+
     -- boolean variables stating whether or not the answer was touched
     answerboxAlreadyTouched = false
     alternateAnswerBox1AlreadyTouched = false
@@ -540,6 +547,10 @@ function scene:show( event )
         -- Called when the scene is still off screen (but is about to come on screen).    
 
     elseif ( phase == "did" ) then
+
+        -- initialize the number of lives and number correct 
+        lives = 3
+        numberCorrect = 0
 
         -- Called when the scene is now on screen.
         -- Insert code here to make the scene come alive.

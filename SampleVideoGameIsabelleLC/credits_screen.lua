@@ -1,9 +1,8 @@
 -----------------------------------------------------------------------------------------
 --
 -- credits_screen.lua
--- Created by: Your Name
--- Special thanks to Wal Wal for helping in the design of this framework.
--- Date: Month Day, Year
+-- Created by: Isabelle LC
+-- Date: May 2, 2019
 -- Description: This is the credits page, displaying a back button to the main menu.
 -----------------------------------------------------------------------------------------
 
@@ -30,6 +29,13 @@ local bkg_image
 local backButton
 
 -----------------------------------------------------------------------------------------
+-- SOUNDS
+-----------------------------------------------------------------------------------------
+
+local bkgMusic = audio.loadStream("Sounds/clear.mp3")
+local bkgMusicChannel = audio.play( bkgMusic, { channel=3, loops=-1 })
+
+-----------------------------------------------------------------------------------------
 -- LOCAL FUNCTIONS
 -----------------------------------------------------------------------------------------
 
@@ -54,7 +60,7 @@ function scene:create( event )
     -----------------------------------------------------------------------------------------
 
     -- Insert the background image and set it to the center of the screen
-    bkg_image = display.newImageRect("Images/Credits Screen.png", display.contentWidth, display.contentHeight)
+    bkg_image = display.newImageRect("Images/CreditsScreenAndyDF@2x.png", display.contentWidth, display.contentHeight)
     bkg_image.x = display.contentCenterX
     bkg_image.y = display.contentCenterY
     bkg_image.width = display.contentWidth
@@ -82,13 +88,15 @@ function scene:create( event )
         -- height = 106,
 
         -- Setting Visual Properties
-        defaultFile = "Images/Back Button Unpressed.png",
-        overFile = "Images/Back Button Pressed.png",
+        defaultFile = "Images/BackButtonUnpressed.png",
+        overFile = "Images/BackButtonPressed.png",
 
         -- Setting Functional Properties
         onRelease = BackTransition
 
     } )
+
+    backButton:scale(0.5, 0.5)
 
     -----------------------------------------------------------------------------------------
 
@@ -120,6 +128,8 @@ function scene:show( event )
         -- Called when the scene is now on screen.
         -- Insert code here to make the scene come alive.
         -- Example: start timers, begin animation, play audio, etc.
+        -- play audio
+        bkgMusicChannel = audio.play(bkgMusic, {loops= -1})
     end
 
 end -- function scene:show( event )
@@ -147,6 +157,7 @@ function scene:hide( event )
 
     elseif ( phase == "did" ) then
         -- Called immediately after scene goes off screen.
+        bkgMusic = audio.stop()
     end
 
 end --function scene:hide( event )
