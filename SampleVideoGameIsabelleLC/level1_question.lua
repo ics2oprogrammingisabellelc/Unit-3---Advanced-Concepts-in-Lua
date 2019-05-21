@@ -34,7 +34,7 @@ local scene = composer.newScene( sceneName )
 
 -- the local variables for this scene
 
-local answerText
+local correctAnswerText
 local wrongAnswerText1
 local wrongAnswerText2
 local wrongAnswerText3
@@ -65,11 +65,6 @@ local questionObject
 local numericField
 local userAnswer
 local correctAnswer1
-local correctAnswer2
-local correctAnswer3
-local correctAnswer4
-local correctAnswer5
-local correctAnswer6
 local incorrectAnswer
 local randomOperator
 
@@ -155,7 +150,7 @@ local function AskQuestion()
     if (randomOperator == 1) then
 
         -- correct answer
-        correctAnswer1 = " 8 "
+        correctAnswer = " 8 "
 
         -- wrong answers
         wrongAnswer1 = correctAnswer1 - math.random(1, 3)
@@ -165,7 +160,7 @@ local function AskQuestion()
         questionObject.text == " How many planets are there? "
 
         -- create answer text
-        correctAnswerText1.text = correctAnswer1
+        correctAnswerText.text = correctAnswer
 
         -- wrong answer text
         wrongText1.text = wrongAnswer1
@@ -175,7 +170,7 @@ local function AskQuestion()
     elseif (randomOperator == 2) then
 
         -- correct answer
-        correctAnswer2 = " Earth "
+        correctAnswer = " Earth "
 
         -- wrong answers
         wrongAnswer4 = " Mars "
@@ -185,7 +180,7 @@ local function AskQuestion()
         questionObjectText2.text == " What planet has life on it? "
 
         -- create answer text
-        correctAnswerText2.text = correctAnswer2
+        correctAnswerText.text = correctAnswer
 
         -- wrong answer text
         wrongText4.text = wrongAnswer4
@@ -193,6 +188,15 @@ local function AskQuestion()
         wrongText6.text = wrongAnswer6
     end
 end
+
+local function PositionAnswers()
+
+    --creating random positions in a certain area
+    answerPosition = math.random(1,2)
+
+    if (answerPosition == 1) then
+
+        correctAnswerText1
 
 --------------------------------------------------------------------------------------
 -- GLOBAL SCENE FUNCTIONS
